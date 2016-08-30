@@ -1,27 +1,15 @@
 <h1>New Snipit</h1>
-
-
-
 <%= form_for :snipit, url: snipits_path do |f| %>
-  
-          <span class="input input--jiro">
-              <%= f.text_field :title, :class => "input__field input__field--jiro", :type => "text", :id => "input-10" %>
-          <label class="input__label input__label--jiro" for="input-10">
-            <span class="input__label-content input__label-content--jiro"><%= f.label :text_Snipit_Title %></span>
-          </label>
-        </span>
+<p>
+  <%= f.label :title %> <br/>
+  <%= f.text_field :title %>
+</p>
 
-  <p>
-    <br>
-  
-  </p>
- 
-  <p>
-    <%= f.label :Text_Snipit_Here %><br>
-    <%= f.text_area :body %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+<p>
+  <%= f.label :body %> <br/>
+  <%= f.text_area :body  %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
 <% end %>
