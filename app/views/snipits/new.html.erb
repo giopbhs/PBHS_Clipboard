@@ -3,9 +3,17 @@
 
 
 <%= form_for :snipit, url: snipits_path do |f| %>
+  
+          <span class="input input--jiro">
+              <%= f.text_field :title, :class => "input__field input__field--jiro", :type => "text", :id => "input-10" %>
+          <label class="input__label input__label--jiro" for="input-10">
+            <span class="input__label-content input__label-content--jiro"><%= f.label :text_Snipit_Title %></span>
+          </label>
+        </span>
+
   <p>
-    <%= f.label :text_Snipit_Title %><br>
-    <%= f.text_field :title %>
+    <br>
+  
   </p>
  
   <p>
