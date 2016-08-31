@@ -1,6 +1,6 @@
 class SnipitsController < ApplicationController
 	def index
-		
+		@snipits = Snipit.all.order('created_at DESC')
 	end
 
 	def new
@@ -15,7 +15,7 @@ class SnipitsController < ApplicationController
 	end
 
 	def show
-		@snipit = Snipit.find(params[:id])
+		@snipit = Snipit.find(params[:id]) 
 	end
 
 	private
