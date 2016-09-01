@@ -4,14 +4,16 @@ class SnipitsController < ApplicationController
 	end
 
 	def new
-		
+		@snipit = Snipit.new
 	end
 
 	def create
 		@snipit = Snipit.new(snipit_params)
-		@snipit.save
-
-		redirect_to @snipit
+		if @snipit.save
+			redirect_to @snipit
+		else
+			render 'new'
+		end
 	end
 
 	def show
