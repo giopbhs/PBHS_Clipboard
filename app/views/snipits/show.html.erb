@@ -4,7 +4,9 @@
 	</h1>
 
 	<p class="date">
-		Submitted <%= time_ago_in_words(@snipit.created_at) %> Ago
+		Submitted <%= time_ago_in_words(@snipit.created_at) %> Ago 
+		| <%= link_to "Edit", edit_snipit_path(@snipit) %>
+		| <%= link_to "Delete", snipit_path(@snipit), method: :delete, data: {confirm: 'Are you sure?'} %>
 	</p>
 
 	<p class="body">

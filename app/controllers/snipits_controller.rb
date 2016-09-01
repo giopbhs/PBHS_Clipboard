@@ -20,6 +20,27 @@ class SnipitsController < ApplicationController
 		@snipit = Snipit.find(params[:id]) 
 	end
 
+	def edit
+		@snipit = Snipit.find(params[:id])
+	end
+
+	def update
+		@snipit = Snipit.find(params[:id])
+
+		if @snipit.update(params[:snipit].permit(:title, :body))
+			redirect_to @snipit
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@snipit = Snipit.find(params[:id])
+		@snipit.destroy
+
+		redirect_to snipits_path
+	end
+
 	private
 
 	def snipit_params

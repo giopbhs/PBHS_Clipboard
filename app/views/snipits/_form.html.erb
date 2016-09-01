@@ -1,0 +1,24 @@
+<%= form_for @snipit do |f| %>
+	<% if @snipit.errors.any? %>
+		<div id="errors">
+			<h2><%= pluralize(@snipit.errors.count, "error") %> prevented this snipit from saving</h2>
+			<ul>
+				<% @snipit.errors.full_messages.each do |msg| %>
+					<li> <%= msg %> </li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<p>
+		<%= f.label :title %> <br/>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :body %> <br/>
+		<%= f.text_area :body  %>
+	</p>
+	<p>
+  		<%= f.submit %>
+	</p>
+<% end %>
