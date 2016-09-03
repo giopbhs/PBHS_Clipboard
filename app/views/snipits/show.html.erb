@@ -1,4 +1,4 @@
-<div id="page_wrapper">
+<div id="post_content">
 	<h1 class="title">
 		<%= @snipit.title %>
 	</h1>
@@ -12,5 +12,13 @@
 	<p class="body">
 		<%= @snipit.body %>
 	</p>
+	</hr>
+	<div id="comments">
+		<h2><%= @snipit.comments.count%> Comments</h2>
+			<%= render @snipit.comments %>
+
+		<h3>Add a comment:</h3>
+		<%= render 'comments/form' %>
+	</div>
 
 </div>
