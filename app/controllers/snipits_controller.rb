@@ -1,4 +1,5 @@
 class SnipitsController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@snipits = Snipit.all.order('created_at DESC')
 	end
