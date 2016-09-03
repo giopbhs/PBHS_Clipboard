@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get '/about', to: 'pages#about'
+
   get 'welcome/index'
-  get 'welcome/about'
+
+  get '/credit', to: 'welcome#credit'
+  get '/pbhs', to: 'welcome#pbhs'
   get 'welcome/create'
 
   resources :snipits do

@@ -10,7 +10,13 @@
 <%= render 'layouts/sidebar' %>
 <div id="main_content">
 	<div id="header">
+		<% if current_page?(snipits_path)%>
 		<p> <%= link_to "All Posts", snipits_path %></p>
+		<% elsif current_page?(about_path)%>
+		<p> About </p>
+		<% else %>
+		<%=link_to "Go Home", :back %>
+		<% end %>
 		<div class="buttons">
 			<button class="button"> <%= link_to "New Post", new_snipit_path %></button>
 			<button class="button"> Log Out</button>

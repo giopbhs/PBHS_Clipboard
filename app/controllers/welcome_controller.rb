@@ -2,9 +2,10 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def about
+  def pbhs
+  	
   end
 
-  def create
+  def credit
   end
 end
