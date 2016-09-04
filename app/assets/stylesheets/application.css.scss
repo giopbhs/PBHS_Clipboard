@@ -353,3 +353,19 @@ a {
     background-color: #33acb7;
 }
 
+
+
+
+input{
+  display: inline;
+    background-size: 200% auto;
+    -webkit-background-size: 200% auto;
+    -moz-background-size: 200% auto;
+    background-position: -0% 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #bde1e5 50%);
+    transition: background-position 0.5s ease-out;
+    -webkit-transition: background-position 0.5s ease-out;
+}
+ input:hover {
+    background-position: -100% 0;
+}
