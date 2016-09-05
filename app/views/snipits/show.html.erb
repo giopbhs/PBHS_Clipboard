@@ -14,7 +14,14 @@
 	<p class="body">
 		<%= @snipit.body %>
 	</p>
-	</hr>
+
+	<button class="button" data-copytarget="#snipit_body" style="padding: .6em 0.5em;">Click To Copy </button>
+
+
+<label for="website"></label>
+<input style="width:45%;" data-copytarget="#snipit_body" readonly type="text" id="snipit_body" value="<%= @snipit.body %>">
+
+
 	<div id="comments">
 		<h2><%= @snipit.comments.count%> Comments</h2>
 			<%= render @snipit.comments %>
@@ -25,3 +32,27 @@
 	</div>
 
 </div>
+
+<script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-53beeb1a007ec32040abaf4c9385ebfc.js"></script>
+<script>(function () {
+    'use strict';
+    document.body.addEventListener('click', copy, true);
+    function copy(e) {
+        var t = e.target, c = t.dataset.copytarget, inp = c ? document.querySelector(c) : null;
+        if (inp && inp.select) {
+            inp.select();
+            try {
+                document.execCommand('copy');
+                inp.blur();
+                t.classList.add('copied');
+                setTimeout(function () {
+                    t.classList.remove('copied');
+                }, 1500);
+            } catch (err) {
+                alert('please press Ctrl/Cmd+C to copy');
+            }
+        }
+    }
+}());
+//# sourceURL=pen.js
+</script>

@@ -1,7 +1,51 @@
 
 <% @snipits.each do |snipit| %>
 	<div class="post_wrapper">
-		<h2 class="title"> <%= link_to snipit.title, snipit %> </h2>
-		<p class="date"> <%= snipit.created_at.strftime("%B %d, %Y") %></p>
+		<div class="row">
+            <div class="col-2">			
+            	<h2 class="title"> <%= link_to snipit.title, snipit %> </h2>
+				<p class="date"> <%= snipit.created_at.strftime("%B %d, %Y") %></p>
+			</div> 
+			<div class="peaceout">
+            <div class="col-1">            	
+            </div> 
+            <div class="col-2">
+            	<p>Preview </p>
+            	<div class="well" style="overflow-y: scroll; height:140px; border: #d6dce0 3px groove;">	        
+	            	<p class="body">
+						<%= snipit.body %>
+						<label for="website"></label>
+						<input  data-copytarget="#snipit_body" readonly type="text" id="snipit_body" value="<%= snipit.body %>">
+					</p>
+				</div>
+				<button class="button" data-copytarget="#snipit_body" style="padding: .6em 0.5em;">Click To Copy </button>
+            </div> 
+        </div>
+        </div> 
 	</div>
 <% end %>
+
+
+<script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-53beeb1a007ec32040abaf4c9385ebfc.js"></script>
+<script>(function () {
+    'use strict';
+    document.body.addEventListener('click', copy, true);
+    function copy(e) {
+        var t = e.target, c = t.dataset.copytarget, inp = c ? document.querySelector(c) : null;
+        if (inp && inp.select) {
+            inp.select();
+            try {
+                document.execCommand('copy');
+                inp.blur();
+                t.classList.add('copied');
+                setTimeout(function () {
+                    t.classList.remove('copied');
+                }, 1500);
+            } catch (err) {
+                alert('please press Ctrl/Cmd+C to copy');
+            }
+        }
+    }
+}());
+//# sourceURL=pen.js
+</script>
