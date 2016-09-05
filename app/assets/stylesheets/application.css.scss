@@ -393,7 +393,7 @@ input{
         min-height: 1px; 
         width: 16.66%; 
         /*-- our gutter -- */
-        padding: 12px; 
+        
         
     }
 
@@ -408,4 +408,19 @@ input{
         outline: 1px solid #F6A1A1; 
     }
 
- 
+ p.body{
+ white-space: pre-line;
+ }
+
+.text-center{
+  text-align:center !important;
+}
+
+#index-full-banner {
+    background: linear-gradient(rgba(165, 208, 213, 0.98), rgba(151, 133, 159, 0.15)), rgba(0, 0, 0, 0.55) url(/assets/stars-e70b9793abf5d41321c9fe2d44bf01d3f4df6b39b0d7d7458c79d3f19d8d2162.jpg);
+    background-size: cover;
+}
+
+.call_2{
+  height:250px;
+}
