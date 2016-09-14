@@ -11,7 +11,7 @@ class SnipitsController < ApplicationController
 
 	def create
 		@snipit = Snipit.new(snipit_params)
-		@snipit.user = User.first
+		@snipit.user = current_user
 		if @snipit.save
 			redirect_to @snipit
 		else
