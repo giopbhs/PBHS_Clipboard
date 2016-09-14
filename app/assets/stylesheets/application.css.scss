@@ -345,6 +345,7 @@ a {
   input[type="submit"] {
     outline: none;
     background: transparent;
+    margin: 25px 0;
     border: 1px solid #d6dce0;
     padding: .5em 1.5em;
     font-size: 1.1em;
@@ -468,4 +469,9 @@ hr {
     
     margin-left: 270px;
     background-color: #cef5e3;
+}
+
+.space_yo {
+  margin: 25px 0;
+  clear: both;
 }

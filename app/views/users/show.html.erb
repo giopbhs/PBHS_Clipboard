@@ -1,0 +1,15 @@
+<div id="page_wrapper">
+<% if @user != current_user %>
+<h1> Hey, Welcome To <%= @user.email %>  Page!</h1>
+<h2>Here are <%= @user.email %>'s' snippits!</h2>
+<% else %>
+<h1> Hey! Welcome To Your Account <%= @user.email %></h1>
+<h2>Here are your snippits </h2>
+<% end %>
+</div>
+
+<%= render 'snipits/snipit', obj: @user.snipits %>
+
+
+
+

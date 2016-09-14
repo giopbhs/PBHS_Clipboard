@@ -5,7 +5,7 @@
 
 	<p class="date">
 		Submitted <%= time_ago_in_words(@snipit.created_at) %> Ago 
-		<% if user_signed_in? %>
+		<% if user_signed_in? && current_user == @snipit.user %>
 		| <%= link_to "Edit", edit_snipit_path(@snipit) %>
 		| <%= link_to "Delete", snipit_path(@snipit), method: :delete, data: {confirm: 'Are you sure?'} %>
 		<% end  %>
