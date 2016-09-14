@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/pbhs', to: 'welcome#pbhs'
   get 'welcome/create'
 
+
   resources :snipits do
     resources :comments
   end
