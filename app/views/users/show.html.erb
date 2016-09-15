@@ -8,7 +8,7 @@
 <% end %>
 </div>
 
-<%= render 'snipits/snipit', obj: @user.snipits %>
+<%= render 'snipits/snipit', obj: @user.snipits.order('created_at DESC') %>
 
 
 
