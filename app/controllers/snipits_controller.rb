@@ -9,8 +9,6 @@ class SnipitsController < ApplicationController
 		@snipit = Snipit.new
 	end
 
-	def
-
 	def create
 		@snipit = Snipit.new(snipit_params)
 		@snipit.user = current_user
