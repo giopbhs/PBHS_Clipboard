@@ -1,0 +1,82 @@
+<div id="page_wrapper">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Timeclocks</h1>
+
+    <% @timeclocks.each do |timeclock| %>
+    <div class="timeclock_wrapper">
+        <p class="date">
+          Submitted <%= time_ago_in_words(timeclock.created_at) %> Ago
+        </p>
+            <% minutes = timeclock.minutes_in % 60 %>
+            <% fin_hour = (timeclock.hour_in + 8) - 12  %>
+            <%if (57 <= minutes) && (minutes <= 59) || (0 <= minutes) && (minutes <= 2) %>
+              <%minutes = "00" %>
+              <%minutes_with_30 = "30" %>
+              <%fin_hour_with_30 =  fin_hour %>
+          <%  elsif (3 <= minutes) && (minutes <= 8  ) %>
+            <%  minutes = "06" %>
+            <%  minutes_with_30 = "36" %>
+            <%  fin_hour_with_30 =  fin_hour %>
+          <%  elsif (9 <= minutes) && (minutes <= 14) %>
+          <%    minutes = "12" %>
+          <%    minutes_with_30 = "42" %>
+          <%    fin_hour_with_30 =  fin_hour %>
+          <%  elsif (15 <= minutes) && (minutes <= 20)   %>
+          <%    minutes = "18" %>
+          <%    minutes_with_30 = "48" %>
+          <%    fin_hour_with_30 =  fin_hour %>
+          <%  elsif (21 <= minutes) && (minutes <= 26 )  %>
+          <%    minutes = "24" %>
+          <%    minutes_with_30 = "54" %>
+          <%    fin_hour_with_30 =  fin_hour %>
+          <%  elsif (27 <= minutes) && (minutes <= 32 )  %>
+          <%    minutes = "30" %>
+          <%    fin_hour_with_30 =  fin_hour + 1 %>
+          <%    minutes_with_30 = "00" %>
+          <%    fin_hour_with_30 =  fin_hour + 1 %>
+          <%  elsif (33 <= minutes) && (minutes <= 38)   %>
+          <%    minutes = "36"   %>
+          <%    minutes_with_30 = "06" %>
+          <%    fin_hour_with_30 =  fin_hour + 1 %>
+          <%  elsif (39 <= minutes) && (minutes <= 44)   %>
+          <%    fin_hour_with_30 =  fin_hour + 1 %>
+          <%    minutes = "42" %>
+          <%    minutes_with_30 = "12" %>
+          <%  elsif (45 <= minutes) && (minutes <= 50)   %>
+          <%    fin_hour_with_30 =  fin_hour + 1 %>
+          <%    minutes = "48"   %>
+          <%    minutes_with_30 = "18" %>
+          <%  elsif (51 <= minutes) && (minutes <= 56)   %>
+          <%   fin_hour_with_30 =  fin_hour + 1 %>
+          <%    minutes = "54"   %>
+          <%    minutes_with_30 = "24" %>
+          <%  else %>
+          <%    minutes = min % 60 %>
+          <%  end  %>
+
+          <p> You are off at <strong><%= "#{fin_hour}:#{minutes}" %></strong> PM Without A lunch </p>
+          <p> You are off at <strong><%= "#{fin_hour_with_30}:#{minutes_with_30}" %></strong> PM With A 30 minute lunch </p>
+          <p> You are off at <strong><%= "#{fin_hour.to_i + 1}:#{minutes}" %></strong> PM With A 1 Hour lunch</p>
+
+
+
+            <p>Inserted Hour: <strong><%= timeclock.hour_in %></strong></p>
+            <% if timeclock.minutes_in < 10 %>
+            <p>Final Minutes: 0<%= timeclock.minutes_in %></p>
+            <p>Inserted Minutes 0<%= timeclock.minutes_in %></p>
+            <% else %>
+            <p>Final Minutes: <%= timeclock.minutes_in %></p>
+            <p>Inserted Minutes <%= timeclock.minutes_in %></p>
+            <% end %>
+            <button class="button"> <%= link_to 'Show', timeclock %></button>
+            <button class="button"> <%= link_to 'Edit', edit_timeclock_path(timeclock) %></button>
+            <button class="button"> <%= link_to 'Destroy', timeclock, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
+    <% end %>
+
+
+<br>
+
+<button class="button"><%= link_to 'New Timeclock', new_timeclock_path %></button>
+</div>

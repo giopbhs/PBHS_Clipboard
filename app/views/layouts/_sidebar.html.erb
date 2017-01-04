@@ -10,22 +10,16 @@
 		<% if user_signed_in? %>
 		<li> <%= link_to "PBHS Shortcodes", pbhs_path %></li>
 		<li><%= link_to "My Snippits", current_user %></li>
+		<li> <%= link_to "New Time Clock", new_timeclock_path %></li>
 		<% else %>
 		<li> <%= link_to "PBHS Shortcodes", pbhs_path %> </li>
-		<li><%= link_to "All Snippits", snipits_path %></li>
-		<li> <%= link_to "How To Use", about_path %></li>
+		<li> <%= link_to "New Time Clock", new_timeclock_path %></li>
 		<% end %>
 	</ul>
 
 	<ul>
-		<li class="category"> Categories</li>
-		<li><%= link_to "All Snippits", snipits_path %></li>
-		<li><a href="#">Web Development</a></li>
-		<li><a href="#">Sales</a></li>
-		<li><a href="#">SEO</a></li>
-		<li><a href="#">Graphic Design</a></li>
-		<li><a href="#">Account Managers</a></li>
-		<li><a href="#">Support</a></li> 
+		<li class="category"> IDK...</li>
+		<li> <%= link_to "Gandalf", gandalf_path %></li>
 
 	</ul>
 
@@ -39,6 +33,6 @@
 	 <%= link_to "User Sign Up", new_user_registration_path %></p>
 	 <% else %>
 	<p class="sign_in"><%= link_to "Edit Your Account", edit_user_registration_path %> </p>
-	 	
+
 	<% end %>
 </div>

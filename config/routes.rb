@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  
+
+  resources :timeclocks
   devise_for :users
-  
+
   get '/about', to: 'pages#about'
+  get '/gandalf', to: 'pages#gandalf'
 
   get 'welcome/index'
 
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show, :index]
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
