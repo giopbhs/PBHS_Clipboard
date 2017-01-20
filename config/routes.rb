@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
   get '/gandalf', to: 'pages#gandalf'
+  get '/cookies', to: 'pages#cookies'
 
   get 'welcome/index'
 
